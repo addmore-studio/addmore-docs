@@ -20,13 +20,20 @@
 }
 
 /* Only ABC Diatype Regular (400) is licensed — the Medium/Bold files on disk
-   are trial versions we can't ship. So run the site single-weight and disable
-   font synthesis, so the browser never fakes a smeared pseudo-bold from the 400
-   file. Bold requests fall back to the real 400 glyphs. This matches the addmore
-   design system, which ships only Regular and strips bold weight.
-   To upgrade later: add licensed Medium/Bold @font-face blocks and remove this. */
+   are trial versions we can't ship. Disable font synthesis globally so small
+   text (body, inline bold, UI labels) never renders a smeared faux-bold from
+   the 400 file... */
 html {
   font-synthesis: none;
+}
+
+/* ...but allow synthesized bold on headings. At large display sizes the faux-bold
+   is far less noticeable, and bold titles restore the hierarchy. Swap for a real
+   licensed weight later via @font-face and drop the font-synthesis line here. */
+h1,
+h2,
+h3 {
+  font-synthesis: weight;
 }
 
 /* ABC Diatype tracking — headings only.
