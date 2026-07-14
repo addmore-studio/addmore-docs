@@ -1,0 +1,33 @@
+# Dependencies / build
+node_modules/
+.mint/
+.DS_Store
+*.log
+
+# Internal planning (repo is public)
+KICKOFF.md
+
+# Agent tooling (installed via `npx skills add`, local dev aid only)
+.agents/
+skills/
+skills-lock.json
+.claude/
+.codebuddy/
+.commandcode/
+.continue/
+.crush/
+.factory/
+.goose/
+.kilocode/
+.kiro/
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.qoder/
+.qwen/
+.roo/
+.trae/
+.windsurf/
+.zencoder/

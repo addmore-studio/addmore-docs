@@ -1,0 +1,73 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "addmore",
+  "colors": {
+    "primary": "#171717",
+    "light": "#ffffff",
+    "dark": "#171717"
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://addmore.studio"
+  },
+  "favicon": "/favicon.png",
+  "fonts": {
+    "family": "ABC Diatype",
+    "weight": 400,
+    "source": "/fonts/abc-diatype.woff2",
+    "format": "woff2"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": ["index", "how-we-work"]
+          },
+          {
+            "group": "Project phases",
+            "pages": [
+              "project-phases/overview",
+              "project-phases/discovery",
+              "project-phases/design",
+              "project-phases/build",
+              "project-phases/launch"
+            ]
+          },
+          {
+            "group": "Working together",
+            "pages": ["deliverables", "communication"]
+          }
+        ]
+      },
+      {
+        "tab": "Components",
+        "groups": [
+          {
+            "group": "Reference",
+            "pages": ["components"]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Start a project",
+      "href": "https://addmore.studio"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://addmore.studio"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+---
+title: "Component showcase"
+description: "A reference page exercising the main Mintlify components and how they look with addmore branding."
+---
+
+<Note>
+  This page is a styling reference, not real documentation. It shows how each
+  Mintlify component looks with addmore branding. Delete it before launch.
+</Note>
+
+## Callouts
+
+Five callout types, each for a different severity.
+
+<Note>A note — supplementary information that's safe to skip.</Note>
+<Info>An info callout — helpful context, like permissions or prerequisites.</Info>
+<Tip>A tip — a recommendation or best practice.</Tip>
+<Warning>A warning — something potentially destructive or irreversible.</Warning>
+<Check>A check — confirmation that something succeeded.</Check>
+
+## Cards and columns
+
+<Columns cols={2}>
+  <Card title="Card with icon" icon="sparkles" href="/">
+    Cards can link somewhere and take an icon. Good for navigation.
+  </Card>
+  <Card title="Another card" icon="layers" href="/">
+    Arrange them in a grid with the Columns component.
+  </Card>
+</Columns>
+
+## Steps
+
+<Steps>
+  <Step title="First step">
+    Steps render a numbered vertical sequence — good for procedures.
+  </Step>
+  <Step title="Second step">
+    Each step can hold any content, including code and callouts.
+  </Step>
+  <Step title="Third step">
+    Use them for anything sequential.
+  </Step>
+</Steps>
+
+## Accordions
+
+<AccordionGroup>
+  <Accordion title="What is an accordion?" icon="chevron-down">
+    A collapsible panel for optional or secondary detail.
+  </Accordion>
+  <Accordion title="When should I use one?" icon="circle-help">
+    When content is useful but would clutter the page if always visible — FAQs,
+    edge cases, advanced options.
+  </Accordion>
+</AccordionGroup>
+
+## Tabs
+
+<Tabs>
+  <Tab title="Overview">
+    Tabs let readers switch between related views without leaving the page.
+  </Tab>
+  <Tab title="Details">
+    Only one tab's content shows at a time.
+  </Tab>
+  <Tab title="More">
+    Good for platform-specific instructions or before/after comparisons.
+  </Tab>
+</Tabs>
+
+## Code
+
+A single block with a language tag and filename:
+
+```tsx app/page.tsx
+export default function Page() {
+  return <h1>Hello from addmore</h1>;
+}
+```
+
+A code group, for showing the same thing across tools:
+
+<CodeGroup>
+
+```bash npm
+npm run build
+```
+
+```bash pnpm
+pnpm build
+```
+
+</CodeGroup>
+
+## Tables
+
+| Component | Use it for | Import needed |
+| --- | --- | --- |
+| Callout | Drawing attention | No |
+| Card | Linked navigation | No |
+| Steps | Sequential instructions | No |
+| Tabs | One-of-many views | No |
+
+## Expandable
+
+<Expandable title="Optional details">
+  Expandable hides long or optional content behind a toggle, inline with the
+  surrounding text rather than as a separate callout.
+</Expandable>

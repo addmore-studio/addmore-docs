@@ -1,0 +1,23 @@
+/*
+ * addmore docs — custom styling
+ *
+ * Keep this minimal. Brand colors, font, logo, and favicon live in docs.json.
+ * This file only covers what docs.json can't express — currently the ABC
+ * Diatype tracking that defines the addmore type feel.
+ */
+
+:root {
+  /* addmore design tokens (from @addmore/tokens) */
+  --addmore-foreground: #171717;
+  --addmore-foreground-muted: #737373;
+  --addmore-border: #e5e5e5;
+  --addmore-letter-spacing: -0.02em;
+}
+
+/* Tight tracking across the whole site — the core of the ABC Diatype look. */
+body,
+h1, h2, h3, h4, h5, h6,
+p, li, a, button, code, th, td,
+.prose {
+  letter-spacing: var(--addmore-letter-spacing);
+}
