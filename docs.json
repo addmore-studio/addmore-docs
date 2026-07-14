@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "addmore",
+  "name": "++addmore",
   "colors": {
     "primary": "#171717",
     "light": "#ffffff",
@@ -16,6 +16,9 @@
     "href": "https://addmore.studio"
   },
   "favicon": "/favicon.png",
+  "icons": {
+    "library": "lucide"
+  },
   "fonts": {
     "family": "ABC Diatype",
     "weight": 400,
@@ -29,30 +32,25 @@
         "groups": [
           {
             "group": "Getting started",
-            "pages": ["index", "how-we-work"]
+            "pages": ["index", "choosing-a-lab"]
           },
           {
-            "group": "Project phases",
+            "group": "Offerings",
+            "pages": ["narrative-lab", "launch-lab", "growth-lab"]
+          },
+          {
+            "group": "How we work",
             "pages": [
-              "project-phases/overview",
-              "project-phases/discovery",
-              "project-phases/design",
-              "project-phases/build",
-              "project-phases/launch"
+              "how-we-work/communication",
+              "how-we-work/feedback",
+              "how-we-work/scope",
+              "how-we-work/technology",
+              "how-we-work/handover"
             ]
           },
           {
-            "group": "Working together",
-            "pages": ["deliverables", "communication"]
-          }
-        ]
-      },
-      {
-        "tab": "Components",
-        "groups": [
-          {
-            "group": "Reference",
-            "pages": ["components"]
+            "group": "FAQ",
+            "pages": ["faq"]
           }
         ]
       }

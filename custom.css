@@ -1,9 +1,8 @@
 /*
  * addmore docs — custom styling
  *
- * Keep this minimal. Brand colors, font, logo, and favicon live in docs.json.
- * This file only covers what docs.json can't express — currently the ABC
- * Diatype tracking that defines the addmore type feel.
+ * Brand colors, font, logo, and favicon live in docs.json. This file only
+ * covers what docs.json can't express.
  */
 
 :root {
@@ -11,19 +10,21 @@
   --addmore-foreground: #171717;
   --addmore-foreground-muted: #737373;
   --addmore-border: #e5e5e5;
-  --addmore-letter-spacing: -0.02em;
 }
 
-/* Tight tracking across the whole site — the core of the ABC Diatype look. */
-body,
-h1, h2, h3, h4, h5, h6,
-p, li, a, button, code, th, td,
-.prose {
-  letter-spacing: var(--addmore-letter-spacing);
-}
-
-/* Navbar logo — the wordmark is wide, so cap its height below Mintlify's
+/* Navbar logo — the wordmark is wide, so cap its height well below Mintlify's
    default (h-7 / 28px) to keep the top bar balanced. Width stays auto. */
-.nav-logo {
-  height: 22px !important;
+.nav-logo,
+#navbar img[src*="/logo/"] {
+  height: 18px !important;
+}
+
+/* ABC Diatype tracking — headings only.
+   Tight tracking looks sharp on large display text but cramps small UI labels.
+   Applying it globally squeezed the nav tabs, the page eyebrow, and the
+   right-hand "On this page" list, so those now keep their default spacing. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
 }
