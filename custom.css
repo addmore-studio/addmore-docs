@@ -21,3 +21,9 @@ p, li, a, button, code, th, td,
 .prose {
   letter-spacing: var(--addmore-letter-spacing);
 }
+
+/* Navbar logo — the wordmark is wide, so cap its height below Mintlify's
+   default (h-7 / 28px) to keep the top bar balanced. Width stays auto. */
+.nav-logo {
+  height: 22px !important;
+}
