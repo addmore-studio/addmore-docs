@@ -5,43 +5,9 @@
  * covers what docs.json can't express.
  */
 
-:root {
-  /* addmore design tokens (from @addmore/tokens) */
-  --addmore-foreground: #171717;
-  --addmore-foreground-muted: #737373;
-  --addmore-border: #e5e5e5;
-}
-
 /* Navbar logo — the wordmark is wide, so cap its height well below Mintlify's
    default (h-7 / 28px) to keep the top bar balanced. Width stays auto. */
 .nav-logo,
 #navbar img[src*="/logo/"] {
   height: 18px !important;
-}
-
-/* Only ABC Diatype Regular (400) is licensed — the Medium/Bold files on disk
-   are trial versions we can't ship. Disable font synthesis globally so small
-   text (body, inline bold, UI labels) never renders a smeared faux-bold from
-   the 400 file... */
-html {
-  font-synthesis: none;
-}
-
-/* ...but allow synthesized bold on headings. At large display sizes the faux-bold
-   is far less noticeable, and bold titles restore the hierarchy. Swap for a real
-   licensed weight later via @font-face and drop the font-synthesis line here. */
-h1,
-h2,
-h3 {
-  font-synthesis: weight;
-}
-
-/* ABC Diatype tracking — headings only.
-   Tight tracking looks sharp on large display text but cramps small UI labels.
-   Applying it globally squeezed the nav tabs, the page eyebrow, and the
-   right-hand "On this page" list, so those now keep their default spacing. */
-h1,
-h2,
-h3 {
-  letter-spacing: -0.02em;
 }

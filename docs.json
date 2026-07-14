@@ -19,12 +19,6 @@
   "icons": {
     "library": "lucide"
   },
-  "fonts": {
-    "family": "ABC Diatype",
-    "weight": 400,
-    "source": "/fonts/abc-diatype.woff2",
-    "format": "woff2"
-  },
   "navigation": {
     "tabs": [
       {
