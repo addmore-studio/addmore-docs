@@ -19,6 +19,16 @@
   height: 18px !important;
 }
 
+/* Only ABC Diatype Regular (400) is licensed — the Medium/Bold files on disk
+   are trial versions we can't ship. So run the site single-weight and disable
+   font synthesis, so the browser never fakes a smeared pseudo-bold from the 400
+   file. Bold requests fall back to the real 400 glyphs. This matches the addmore
+   design system, which ships only Regular and strips bold weight.
+   To upgrade later: add licensed Medium/Bold @font-face blocks and remove this. */
+html {
+  font-synthesis: none;
+}
+
 /* ABC Diatype tracking — headings only.
    Tight tracking looks sharp on large display text but cramps small UI labels.
    Applying it globally squeezed the nav tabs, the page eyebrow, and the
