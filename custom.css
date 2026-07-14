@@ -11,3 +11,15 @@
 #navbar img[src*="/logo/"] {
   height: 18px !important;
 }
+
+/* Home page hero image — full content width, cropped to a shorter banner
+   (object-fit avoids squishing), more rounded, tighter space above. */
+.hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: bottom;
+  margin: 0.25rem 0 0;
+  border-radius: 20px;
+}
