@@ -1,0 +1,124 @@
+---
+title: "Configure your package"
+description: "Build your own engagement — pick a Lab, choose a tier, add extras, and see an indicative price update live."
+---
+
+export const Configurator = () => {
+  const CURRENCY = "EUR";
+  const LABS = [
+    { id: "narrative", name: "Narrative Lab", base: 8500, desc: "Positioning, messaging, and narrative foundation." },
+    { id: "launch", name: "Launch Lab", desc: "End-to-end launch — brand, website, and assets.", tiers: [
+      { id: "plus", name: "+", price: 25000 },
+      { id: "plusplus", name: "++", price: 35000 },
+      { id: "plusplusplus", name: "+++", price: 45000 },
+    ] },
+    { id: "growth", name: "Growth Lab", base: 12500, desc: "Continuous product marketing, run per wave." },
+  ];
+  const ADDONS = [
+    { id: "video", name: "Launch video", price: 5000 },
+    { id: "deck", name: "Slide deck", price: 5000 },
+    { id: "uikit", name: "Brand UI kit", price: 5000 },
+    { id: "motion", name: "Motion pack", price: 5000 },
+    { id: "photo", name: "Photography direction", price: 5000 },
+    { id: "language", name: "Extra language", price: 5000 },
+  ];
+
+  const [labId, setLabId] = useState("launch");
+  const [tierId, setTierId] = useState("plus");
+  const [selected, setSelected] = useState([]);
+
+  const lab = LABS.find((l) => l.id === labId);
+  const tier = lab.tiers ? lab.tiers.find((t) => t.id === tierId) : null;
+  const base = tier ? tier.price : lab.base;
+
+  const fmt = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: CURRENCY, maximumFractionDigits: 0 }).format(n);
+
+  const chosenAddons = ADDONS.filter((a) => selected.includes(a.id));
+  const total = base + chosenAddons.reduce((sum, a) => sum + a.price, 0);
+
+  const toggleAddon = (id) => setSelected((s) => s.includes(id) ? s.filter((x) => x !== id) : [...s, id]);
+
+  return (
+    <div className="am-config">
+      <div className="am-config-grid">
+        <div className="am-config-main">
+          <div className="am-step-label">
+            <span className="am-step-num">1</span> Choose your Lab
+          </div>
+          <div className="am-lab-grid">
+            {LABS.map((l) => (
+              <button key={l.id} type="button" className={`am-card ${labId === l.id ? "is-selected" : ""}`} onClick={() => setLabId(l.id)}>
+                <span className="am-card-name">{l.name}</span>
+                <span className="am-card-price">{l.tiers ? `from ${fmt(l.tiers[0].price)}` : fmt(l.base)}</span>
+                <span className="am-card-desc">{l.desc}</span>
+              </button>
+            ))}
+          </div>
+
+          {lab.tiers ? (
+            <div className="am-tier-block">
+              <div className="am-step-label am-step-sub">{lab.name} — choose your tier</div>
+              <div className="am-seg">
+                {lab.tiers.map((t) => (
+                  <button key={t.id} type="button" className={`am-seg-item ${tierId === t.id ? "is-selected" : ""}`} onClick={() => setTierId(t.id)}>
+                    <span className="am-seg-name">{t.name}</span>
+                    <span className="am-seg-price">{fmt(t.price)}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          <div className="am-step-label">
+            <span className="am-step-num">2</span> Add extras
+            <span className="am-step-hint">+{fmt(5000)} each</span>
+          </div>
+          <div className="am-addon-grid">
+            {ADDONS.map((a) => {
+              const on = selected.includes(a.id);
+              return (
+                <button key={a.id} type="button" className={`am-addon ${on ? "is-selected" : ""}`} onClick={() => toggleAddon(a.id)}>
+                  <span className="am-check" aria-hidden="true">{on ? "✓" : ""}</span>
+                  <span className="am-addon-name">{a.name}</span>
+                  <span className="am-addon-price">+{fmt(a.price)}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <aside className="am-summary">
+          <div className="am-summary-title">Your package</div>
+          <div className="am-summary-row">
+            <span>{lab.name}{tier ? ` · ${tier.name}` : ""}</span>
+            <span>{fmt(base)}</span>
+          </div>
+          {chosenAddons.map((a) => (
+            <div className="am-summary-row am-summary-addon" key={a.id}>
+              <span>{a.name}</span>
+              <span>+{fmt(a.price)}</span>
+            </div>
+          ))}
+          <div className="am-summary-total">
+            <span>Price indication</span>
+            <span className="am-total-num">≈ {fmt(total)}</span>
+          </div>
+          <a className="am-cta" href="https://addmore.studio">Request this package →</a>
+          <p className="am-fineprint">A price indication only — every quote is personal. We confirm your exact scope and price together before anything starts.</p>
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+Every engagement is scoped individually — this gives you a feel for how a package
+comes together and roughly what it costs. Pick a Lab, choose a tier, and add the
+extras you need; the price indication updates as you go.
+
+<Configurator />
+
+<Note>
+  These figures are a price indication only — every quote is personal. We confirm
+  your exact scope and price together before any project starts. [Start a
+  conversation](https://addmore.studio) whenever you're ready.
+</Note>
