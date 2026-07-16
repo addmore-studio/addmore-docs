@@ -3,6 +3,53 @@ title: "Launch Lab"
 description: "Our end-to-end product launch engagement — positioning, brand, website, and launch assets in one integrated sprint."
 ---
 
+export const Timeline = () => {
+  const WEEKS = 6;
+  const PHASES = [
+    { name: "Kickoff", group: "direction", start: 1, span: 1 },
+    { name: "Commercial direction", group: "direction", start: 1, span: 2 },
+    { name: "Visual direction", group: "direction", start: 2, span: 2 },
+    { name: "Production", group: "build", start: 3, span: 2 },
+    { name: "Development", group: "build", start: 4, span: 2 },
+    { name: "Quality assurance", group: "ship", start: 5, span: 1 },
+    { name: "Launch & handover", group: "ship", start: 6, span: 1 },
+  ];
+  const GROUPS = [
+    { id: "direction", label: "Direction" },
+    { id: "build", label: "Build" },
+    { id: "ship", label: "Ship" },
+  ];
+  const cols = `150px repeat(${WEEKS}, minmax(48px, 1fr))`;
+  const cells = [];
+  cells.push(<div className="am-tl-corner" key="corner" style={{ gridColumn: 1, gridRow: 1 }}>6-week cadence</div>);
+  for (let i = 0; i < WEEKS; i++) {
+    cells.push(<div className="am-tl-week" key={`w${i}`} style={{ gridColumn: i + 2, gridRow: 1 }}>W{i + 1}</div>);
+  }
+  PHASES.forEach((p, idx) => {
+    const row = idx + 2;
+    cells.push(<div className="am-tl-name" key={`n${idx}`} style={{ gridColumn: 1, gridRow: row }}>{p.name}</div>);
+    cells.push(
+      <div className={`am-tl-bar am-grp-${p.group}`} key={`b${idx}`} style={{ gridColumn: `${p.start + 1} / ${p.start + 1 + p.span}`, gridRow: row }}>
+        <span className="am-tl-span">{p.span} {p.span === 1 ? "wk" : "wks"}</span>
+      </div>
+    );
+  });
+  return (
+    <div className="am-timeline">
+      <div className="am-tl-scroll">
+        <div className="am-tl-grid" style={{ gridTemplateColumns: cols }}>{cells}</div>
+      </div>
+      <div className="am-tl-legend">
+        {GROUPS.map((g) => (
+          <span className="am-tl-legend-item" key={g.id}>
+            <span className={`am-tl-dot am-grp-${g.id}`} aria-hidden="true" />{g.label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 Launch Lab is our end-to-end product launch engagement. It combines positioning,
 branding, website, product storytelling, and launch assets into one integrated
 sprint.
@@ -114,6 +161,11 @@ without constantly reopening previous work.
 
 Launch Labs generally run between **4 and 8 weeks**, depending on scope.
 
+A typical 6-week cadence looks like this — phases overlap, and every decision is
+approved before the next begins:
+
+<Timeline />
+
 <Tabs>
   <Tab title="4-week">
     Ideal for a homepage or landing page, a brand uplift, or a fast product
@@ -182,3 +234,14 @@ marketing, and growth experiments.
     quality and timeline.
   </Accordion>
 </AccordionGroup>
+
+## Ready to launch?
+
+<Columns cols={2}>
+  <Card title="Start a Launch Lab" icon="rocket" href="https://addmore.studio">
+    Tell us your launch milestone and we'll scope the sprint with you.
+  </Card>
+  <Card title="Need positioning first?" icon="compass" href="/narrative-lab">
+    Start with Narrative Lab if the strategic foundation needs work.
+  </Card>
+</Columns>
